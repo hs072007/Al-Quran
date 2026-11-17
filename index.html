@@ -94,5 +94,6 @@ function settings(){head("Data",true);m.onclick=null;
  navigator.serviceWorker?.getRegistration().then(r=>{$("off").textContent=r&&r.active?"App files are cached. You can go offline.":"Not cached yet. Open this page once over HTTPS."})}
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 navigator.storage?.persist?.();
-load().then(()=>home());
+window.addEventListener("error",e=>{m.insertAdjacentHTML("afterbegin",'<div class="box">Error: '+e.message+'</div>')});
+load().catch(()=>{}).then(()=>home());
 </script></body></html>

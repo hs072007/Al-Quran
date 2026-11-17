@@ -1,4 +1,4 @@
-const V = "quran-v1";
+const V = "quran-v2";
 const FILES = ["./", "index.html", "manifest.webmanifest"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
